@@ -185,7 +185,7 @@ CFRunLoopObserverRef rlo = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefaul
 
 假如我们需要频繁的在子线程中做事情,但是每次创建线程,销毁线程都会有较大的系统资源开销.这个时候,我们就需要一条常驻线程来实现目的.
 实际开发中,实现一个常驻线程是比较容易的,创建`runloop`/添加`Port`/调用`run`方法,即可很快的实现一条常驻线程.但是这条线程如何销毁其实是问题比较大的
-具体的实现,可以参考`LongThread`.提供了`Foundation`和`CoreFoundation`的两种实现.在实现过程中发现,有以下细节要注意.
+具体的实现,可以参考[LongThread](https://github.com/Yuan91/runloop/blob/master/LongThread.m).提供了`Foundation`和`CoreFoundation`的两种实现.在实现过程中发现,有以下细节要注意.
 
 ### 细节1:NSRunloop的run方法,无法停止
 查看定义:
@@ -458,6 +458,7 @@ Timer有一个属性Tolerance(宽容度),标记了到时候后容许有多大的
 
 ### 常驻线程的实现.
 上面已经实现
+具体参数 [LongThread](https://github.com/Yuan91/runloop/blob/master/LongThread.m)
 
 ### 处理UITableView卡顿
 实现`UITableView`滑动的时候,不加载图片的方法:
